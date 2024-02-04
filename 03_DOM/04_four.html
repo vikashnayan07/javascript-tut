@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove DOM</title>
+</head>
+<body style="background-color: #212121; color:#fff">
+    <ul class="language">
+        <li>
+            javascript
+        </li>
+    </ul>
+</body>
+<script>
+    function add(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language' ).appendChild(li)
+    }
+    add("Python")
+    add("Java")
+    function addoptiLang(langName){
+        const li = document.createElement('li');
+      li.appendChild(document.createTextNode(langName))  
+      document.querySelector('.language').appendChild(li)
+    }
+    addoptiLang('go lang')
+
+    //Edit
+const secondland = document.querySelector("li:nth-child(2)")
+// secondland.innerHTML = "Mojo" ==> ye kaam kregi lekin optimeze nhi hai
+const newli = document.createElement('li')
+newli.textContent = " Mojo"
+secondland.replaceWith(newli)
+
+// edit
+const firstland = document.querySelector("li:first-child")
+firstland.outerHTML = '<li> Typescript</li>'
+
+// Remove
+const lastlang = document.querySelector('li:last-child')
+lastlang.remove()
+</script>
+
+</html>
